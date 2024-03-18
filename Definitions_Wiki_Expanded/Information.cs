@@ -26,9 +26,9 @@ namespace Definitions_Wiki_Expanded
         }
 
         // setter
-        public void setName(string _NewName)
+        public void setName(string newName)
         {
-            name = _NewName;
+            name = newName;
         }
 
         public int CompareTo(Information OtherName)
