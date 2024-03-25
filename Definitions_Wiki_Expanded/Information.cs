@@ -31,6 +31,7 @@ namespace Definitions_Wiki_Expanded
             name = newName;
         }
 
+        // search and sort
         public int CompareTo(Information OtherName)
         {
             return name.CompareTo(OtherName.name);
