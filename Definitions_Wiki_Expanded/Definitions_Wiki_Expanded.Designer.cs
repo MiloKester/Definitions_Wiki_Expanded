@@ -31,97 +31,98 @@ namespace Definitions_Wiki_Expanded
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxDefinition = new System.Windows.Forms.TextBox();
-            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this.radioButtonLinear = new System.Windows.Forms.RadioButton();
-            this.radioButtonNonLinear = new System.Windows.Forms.RadioButton();
+            this.ButtonAdd = new System.Windows.Forms.Button();
+            this.TextBoxName = new System.Windows.Forms.TextBox();
+            this.TextBoxDefinition = new System.Windows.Forms.TextBox();
+            this.ComboBoxCategory = new System.Windows.Forms.ComboBox();
+            this.RadioButtonLinear = new System.Windows.Forms.RadioButton();
+            this.RadioButtonNonLinear = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listViewDisplay = new System.Windows.Forms.ListView();
+            this.ListViewDisplay = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStripMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ButtonEdit = new System.Windows.Forms.Button();
+            this.ButtonDelete = new System.Windows.Forms.Button();
+            this.TextBoxSearch = new System.Windows.Forms.TextBox();
+            this.ButtonSearch = new System.Windows.Forms.Button();
+            this.StatusStrip = new System.Windows.Forms.StatusStrip();
+            this.ToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusStripMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItemSave = new System.Windows.Forms.MenuItem();
-            this.menuItemOpen = new System.Windows.Forms.MenuItem();
+            this.MenuItem1 = new System.Windows.Forms.MenuItem();
+            this.MenuItemSave = new System.Windows.Forms.MenuItem();
+            this.MenuItemOpen = new System.Windows.Forms.MenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.ButtonDeleteAll = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonAdd
+            // ButtonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(139, 22);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.ButtonAdd.Location = new System.Drawing.Point(139, 22);
+            this.ButtonAdd.Name = "ButtonAdd";
+            this.ButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.ButtonAdd.TabIndex = 0;
+            this.ButtonAdd.Text = "Add";
+            this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
-            // textBoxName
+            // TextBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(12, 22);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxName.TabIndex = 1;
-            this.textBoxName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textBoxName_MouseDoubleClick);
+            this.TextBoxName.Location = new System.Drawing.Point(12, 22);
+            this.TextBoxName.Name = "TextBoxName";
+            this.TextBoxName.Size = new System.Drawing.Size(121, 20);
+            this.TextBoxName.TabIndex = 1;
+            this.TextBoxName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TextBoxName_MouseDoubleClick);
             // 
-            // textBoxDefinition
+            // TextBoxDefinition
             // 
-            this.textBoxDefinition.Location = new System.Drawing.Point(13, 174);
-            this.textBoxDefinition.Multiline = true;
-            this.textBoxDefinition.Name = "textBoxDefinition";
-            this.textBoxDefinition.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDefinition.Size = new System.Drawing.Size(168, 99);
-            this.textBoxDefinition.TabIndex = 4;
+            this.TextBoxDefinition.Location = new System.Drawing.Point(13, 174);
+            this.TextBoxDefinition.Multiline = true;
+            this.TextBoxDefinition.Name = "TextBoxDefinition";
+            this.TextBoxDefinition.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextBoxDefinition.Size = new System.Drawing.Size(168, 99);
+            this.TextBoxDefinition.TabIndex = 4;
             // 
-            // comboBoxCategory
+            // ComboBoxCategory
             // 
-            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(12, 61);
-            this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCategory.Sorted = true;
-            this.comboBoxCategory.TabIndex = 5;
+            this.ComboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCategory.FormattingEnabled = true;
+            this.ComboBoxCategory.Location = new System.Drawing.Point(12, 61);
+            this.ComboBoxCategory.Name = "ComboBoxCategory";
+            this.ComboBoxCategory.Size = new System.Drawing.Size(121, 21);
+            this.ComboBoxCategory.Sorted = true;
+            this.ComboBoxCategory.TabIndex = 5;
             // 
-            // radioButtonLinear
+            // RadioButtonLinear
             // 
-            this.radioButtonLinear.AutoSize = true;
-            this.radioButtonLinear.Location = new System.Drawing.Point(6, 19);
-            this.radioButtonLinear.Name = "radioButtonLinear";
-            this.radioButtonLinear.Size = new System.Drawing.Size(54, 17);
-            this.radioButtonLinear.TabIndex = 6;
-            this.radioButtonLinear.TabStop = true;
-            this.radioButtonLinear.Text = "Linear";
-            this.radioButtonLinear.UseVisualStyleBackColor = true;
+            this.RadioButtonLinear.AutoSize = true;
+            this.RadioButtonLinear.Location = new System.Drawing.Point(6, 19);
+            this.RadioButtonLinear.Name = "RadioButtonLinear";
+            this.RadioButtonLinear.Size = new System.Drawing.Size(54, 17);
+            this.RadioButtonLinear.TabIndex = 6;
+            this.RadioButtonLinear.TabStop = true;
+            this.RadioButtonLinear.Text = "Linear";
+            this.RadioButtonLinear.UseVisualStyleBackColor = true;
             // 
-            // radioButtonNonLinear
+            // RadioButtonNonLinear
             // 
-            this.radioButtonNonLinear.AutoSize = true;
-            this.radioButtonNonLinear.Location = new System.Drawing.Point(6, 42);
-            this.radioButtonNonLinear.Name = "radioButtonNonLinear";
-            this.radioButtonNonLinear.Size = new System.Drawing.Size(77, 17);
-            this.radioButtonNonLinear.TabIndex = 7;
-            this.radioButtonNonLinear.TabStop = true;
-            this.radioButtonNonLinear.Text = "Non-Linear";
-            this.radioButtonNonLinear.UseVisualStyleBackColor = true;
+            this.RadioButtonNonLinear.AutoSize = true;
+            this.RadioButtonNonLinear.Location = new System.Drawing.Point(6, 42);
+            this.RadioButtonNonLinear.Name = "RadioButtonNonLinear";
+            this.RadioButtonNonLinear.Size = new System.Drawing.Size(77, 17);
+            this.RadioButtonNonLinear.TabIndex = 7;
+            this.RadioButtonNonLinear.TabStop = true;
+            this.RadioButtonNonLinear.Text = "Non-Linear";
+            this.RadioButtonNonLinear.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButtonLinear);
-            this.groupBox1.Controls.Add(this.radioButtonNonLinear);
+            this.groupBox1.Controls.Add(this.RadioButtonLinear);
+            this.groupBox1.Controls.Add(this.RadioButtonNonLinear);
             this.groupBox1.Location = new System.Drawing.Point(13, 88);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(121, 67);
@@ -129,19 +130,19 @@ namespace Definitions_Wiki_Expanded
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Structure";
             // 
-            // listViewDisplay
+            // ListViewDisplay
             // 
-            this.listViewDisplay.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ListViewDisplay.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listViewDisplay.HideSelection = false;
-            this.listViewDisplay.Location = new System.Drawing.Point(220, 22);
-            this.listViewDisplay.Name = "listViewDisplay";
-            this.listViewDisplay.Size = new System.Drawing.Size(249, 295);
-            this.listViewDisplay.TabIndex = 9;
-            this.listViewDisplay.UseCompatibleStateImageBehavior = false;
-            this.listViewDisplay.View = System.Windows.Forms.View.Details;
-            this.listViewDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewDisplay_MouseClick);
+            this.ListViewDisplay.HideSelection = false;
+            this.ListViewDisplay.Location = new System.Drawing.Point(220, 22);
+            this.ListViewDisplay.Name = "ListViewDisplay";
+            this.ListViewDisplay.Size = new System.Drawing.Size(249, 295);
+            this.ListViewDisplay.TabIndex = 9;
+            this.ListViewDisplay.UseCompatibleStateImageBehavior = false;
+            this.ListViewDisplay.View = System.Windows.Forms.View.Details;
+            this.ListViewDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListViewDisplay_MouseClick);
             // 
             // columnHeader1
             // 
@@ -153,90 +154,89 @@ namespace Definitions_Wiki_Expanded
             this.columnHeader2.Text = "Category";
             this.columnHeader2.Width = 95;
             // 
-            // buttonEdit
+            // ButtonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(139, 51);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
-            this.buttonEdit.TabIndex = 10;
-            this.buttonEdit.Text = "Edit";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.ButtonEdit.Location = new System.Drawing.Point(139, 51);
+            this.ButtonEdit.Name = "ButtonEdit";
+            this.ButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.ButtonEdit.TabIndex = 10;
+            this.ButtonEdit.Text = "Edit";
+            this.ButtonEdit.UseVisualStyleBackColor = true;
+            this.ButtonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
-            // buttonDelete
+            // ButtonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(139, 80);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 11;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.ButtonDelete.Location = new System.Drawing.Point(139, 80);
+            this.ButtonDelete.Name = "ButtonDelete";
+            this.ButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.ButtonDelete.TabIndex = 11;
+            this.ButtonDelete.Text = "Delete";
+            this.ButtonDelete.UseVisualStyleBackColor = true;
+            this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
-            // textBoxSearch
+            // TextBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(13, 294);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(121, 20);
-            this.textBoxSearch.TabIndex = 12;
+            this.TextBoxSearch.Location = new System.Drawing.Point(13, 294);
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            this.TextBoxSearch.Size = new System.Drawing.Size(121, 20);
+            this.TextBoxSearch.TabIndex = 12;
             // 
-            // buttonSearch
+            // ButtonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(140, 294);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 13;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.ButtonSearch.Location = new System.Drawing.Point(140, 294);
+            this.ButtonSearch.Name = "ButtonSearch";
+            this.ButtonSearch.Size = new System.Drawing.Size(75, 23);
+            this.ButtonSearch.TabIndex = 13;
+            this.ButtonSearch.Text = "Search";
+            this.ButtonSearch.UseVisualStyleBackColor = true;
+            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
-            // statusStrip1
+            // StatusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.statusStripMessage});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 335);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(497, 22);
-            this.statusStrip1.TabIndex = 14;
-            this.statusStrip1.Text = "statusStrip1";
+            this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripStatusLabel,
+            this.StatusStripMessage});
+            this.StatusStrip.Location = new System.Drawing.Point(0, 335);
+            this.StatusStrip.Name = "StatusStrip";
+            this.StatusStrip.Size = new System.Drawing.Size(497, 22);
+            this.StatusStrip.TabIndex = 14;
+            this.StatusStrip.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // ToolStripStatusLabel
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
-            this.toolStripStatusLabel1.Text = "Status:";
+            this.ToolStripStatusLabel.Name = "ToolStripStatusLabel";
+            this.ToolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
+            this.ToolStripStatusLabel.Text = "Status:";
             // 
-            // statusStripMessage
+            // StatusStripMessage
             // 
-            this.statusStripMessage.Name = "statusStripMessage";
-            this.statusStripMessage.Size = new System.Drawing.Size(74, 17);
-            this.statusStripMessage.Text = "PLACEHOLD";
+            this.StatusStripMessage.Name = "StatusStripMessage";
+            this.StatusStripMessage.Size = new System.Drawing.Size(0, 17);
             // 
             // mainMenu1
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem1});
+            this.MenuItem1});
             // 
-            // menuItem1
+            // MenuItem1
             // 
-            this.menuItem1.Index = 0;
-            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemSave,
-            this.menuItemOpen});
-            this.menuItem1.Text = "File";
+            this.MenuItem1.Index = 0;
+            this.MenuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemSave,
+            this.MenuItemOpen});
+            this.MenuItem1.Text = "File";
             // 
-            // menuItemSave
+            // MenuItemSave
             // 
-            this.menuItemSave.Index = 0;
-            this.menuItemSave.Text = "Save";
-            this.menuItemSave.Click += new System.EventHandler(this.menuItemSave_Click);
+            this.MenuItemSave.Index = 0;
+            this.MenuItemSave.Text = "Save";
+            this.MenuItemSave.Click += new System.EventHandler(this.MenuItemSave_Click);
             // 
-            // menuItemOpen
+            // MenuItemOpen
             // 
-            this.menuItemOpen.Index = 1;
-            this.menuItemOpen.Text = "Open";
-            this.menuItemOpen.Click += new System.EventHandler(this.menuItemOpen_Click);
+            this.MenuItemOpen.Index = 1;
+            this.MenuItemOpen.Text = "Open";
+            this.MenuItemOpen.Click += new System.EventHandler(this.MenuItemOpen_Click);
             // 
             // label1
             // 
@@ -265,26 +265,37 @@ namespace Definitions_Wiki_Expanded
             this.label3.TabIndex = 17;
             this.label3.Text = "Definition";
             // 
+            // ButtonDeleteAll
+            // 
+            this.ButtonDeleteAll.Location = new System.Drawing.Point(139, 109);
+            this.ButtonDeleteAll.Name = "ButtonDeleteAll";
+            this.ButtonDeleteAll.Size = new System.Drawing.Size(75, 23);
+            this.ButtonDeleteAll.TabIndex = 18;
+            this.ButtonDeleteAll.Text = "Delete All";
+            this.ButtonDeleteAll.UseVisualStyleBackColor = true;
+            this.ButtonDeleteAll.Click += new System.EventHandler(this.ButtonDeleteAll_Click);
+            // 
             // Definitions_Wiki_Expanded
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(497, 357);
+            this.Controls.Add(this.ButtonDeleteAll);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonEdit);
-            this.Controls.Add(this.listViewDisplay);
+            this.Controls.Add(this.StatusStrip);
+            this.Controls.Add(this.ButtonSearch);
+            this.Controls.Add(this.TextBoxSearch);
+            this.Controls.Add(this.ButtonDelete);
+            this.Controls.Add(this.ButtonEdit);
+            this.Controls.Add(this.ListViewDisplay);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.comboBoxCategory);
-            this.Controls.Add(this.textBoxDefinition);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.ComboBoxCategory);
+            this.Controls.Add(this.TextBoxDefinition);
+            this.Controls.Add(this.TextBoxName);
+            this.Controls.Add(this.ButtonAdd);
             this.Menu = this.mainMenu1;
             this.Name = "Definitions_Wiki_Expanded";
             this.Text = "Definitions Wiki";
@@ -292,8 +303,8 @@ namespace Definitions_Wiki_Expanded
             this.Load += new System.EventHandler(this.Definitions_Wiki_Expanded_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.StatusStrip.ResumeLayout(false);
+            this.StatusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,30 +312,31 @@ namespace Definitions_Wiki_Expanded
 
         #endregion
 
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxDefinition;
-        private System.Windows.Forms.ComboBox comboBoxCategory;
-        private System.Windows.Forms.RadioButton radioButtonLinear;
-        private System.Windows.Forms.RadioButton radioButtonNonLinear;
+        private System.Windows.Forms.Button ButtonAdd;
+        private System.Windows.Forms.TextBox TextBoxName;
+        private System.Windows.Forms.TextBox TextBoxDefinition;
+        private System.Windows.Forms.ComboBox ComboBoxCategory;
+        private System.Windows.Forms.RadioButton RadioButtonLinear;
+        private System.Windows.Forms.RadioButton RadioButtonNonLinear;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView listViewDisplay;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.ListView ListViewDisplay;
+        private System.Windows.Forms.Button ButtonEdit;
+        private System.Windows.Forms.Button ButtonDelete;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel statusStripMessage;
+        private System.Windows.Forms.TextBox TextBoxSearch;
+        private System.Windows.Forms.Button ButtonSearch;
+        private System.Windows.Forms.StatusStrip StatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel StatusStripMessage;
         private System.Windows.Forms.MainMenu mainMenu1;
-        private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem menuItemSave;
-        private System.Windows.Forms.MenuItem menuItemOpen;
+        private System.Windows.Forms.MenuItem MenuItem1;
+        private System.Windows.Forms.MenuItem MenuItemSave;
+        private System.Windows.Forms.MenuItem MenuItemOpen;
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button ButtonDeleteAll;
     }
 }
 

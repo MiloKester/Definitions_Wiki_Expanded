@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Definitions_Wiki_Expanded
 {
@@ -20,15 +17,16 @@ namespace Definitions_Wiki_Expanded
         private string definition;
 
         // getter
-        public string getName()
+        public string GetName()
         {
             return name;
         }
 
         // setter
-        public void setName(string newName)
+        public void SetName(string newName)
         {
-            name = newName;
+            TextInfo myTI = new CultureInfo("en-AU", false).TextInfo;
+            name = myTI.ToTitleCase(newName);
         }
 
         // search and sort
@@ -37,39 +35,34 @@ namespace Definitions_Wiki_Expanded
             return name.CompareTo(OtherName.name);
         }
 
-        public string getCategory()
+        public string GetCategory()
         {
             return category;
         }
 
-        public void setCategory(string newCategory)
+        public void SetCategory(string newCategory)
         {
             category = newCategory;
         }
 
-        public string getStructure()
+        public string GetStructure()
         {
             return structure;
         }
 
-        public void setStructure(string newStructure)
+        public void SetStructure(string newStructure)
         {
             structure = newStructure;
         }
 
-        public string getDefinition()
+        public string GetDefinition()
         {
             return definition;
         }
 
-        public void setDefinition(string newDefinition)
+        public void SetDefinition(string newDefinition)
         {
             definition = newDefinition;
-            // example code
-            // if (newCost < 0)
-                // cost = 0;
-            // else
-                // cost = newCost;
         }
 
     }
