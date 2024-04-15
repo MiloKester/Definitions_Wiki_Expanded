@@ -297,10 +297,12 @@ namespace Definitions_Wiki_Expanded
             this.Controls.Add(this.TextBoxName);
             this.Controls.Add(this.ButtonAdd);
             this.Menu = this.mainMenu1;
+            this.MinimumSize = new System.Drawing.Size(513, 417);
             this.Name = "Definitions_Wiki_Expanded";
             this.Text = "Definitions Wiki";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Definitions_Wiki_Expanded_FormClosed);
             this.Load += new System.EventHandler(this.Definitions_Wiki_Expanded_Load);
+            this.Shown += new System.EventHandler(this.Definitions_Wiki_Expanded_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.StatusStrip.ResumeLayout(false);

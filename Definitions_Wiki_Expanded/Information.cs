@@ -29,7 +29,7 @@ namespace Definitions_Wiki_Expanded
             name = myTI.ToTitleCase(newName);
         }
 
-        // search and sort
+        // search and sort // used by the Icomparable
         public int CompareTo(Information OtherName)
         {
             return name.CompareTo(OtherName.name);
@@ -64,6 +64,5 @@ namespace Definitions_Wiki_Expanded
         {
             definition = newDefinition;
         }
-
     }
 }

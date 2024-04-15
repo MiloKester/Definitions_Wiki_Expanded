@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
 // 30063179 Milo Kester
-// Date Here
+// 2024-04-XX
 // AT2 Definitions Wiki Expanded Features
 
 namespace Definitions_Wiki_Expanded
 {
     public partial class Definitions_Wiki_Expanded : Form
     {
-
         #region SetUp
 
         public Definitions_Wiki_Expanded()
@@ -26,16 +26,6 @@ namespace Definitions_Wiki_Expanded
 
         private void Definitions_Wiki_Expanded_Load(object sender, System.EventArgs e)
         {
-            /* this kinda format for trace testing
-            Trace.Listeners.Add(new TextWriterTraceListener("trace.txt"));
-            Trace.AutoFlush = true;
-            Trace.Indent();
-            Trace.WriteLine("Application Loading");
-            Trace.WriteLine("Application Loaded");
-            Trace.Unindent();
-            Trace.Flush();
-            */
-
             FillComboBox(); // get categories from file
 
             // on load, open autosave
@@ -43,12 +33,14 @@ namespace Definitions_Wiki_Expanded
                 OpenRecord("autosave.dat");
                 StatusStripMessage.Text = "Autosave Loaded";
             }
-
-            TextBoxName.Focus(); // focuses on the add button or something instead idk
         }
 
-        // 6.4 Create a custom method to populate the ComboBox when the Form Load method is called.
-        // The six categories must be read from a simple text file.
+        private void Definitions_Wiki_Expanded_Shown(object sender, System.EventArgs e)
+        {
+            TextBoxName.Focus(); // needs to run after form has been loaded else it'll focus on the add button
+        }
+
+        // 6.4 Create a custom method to populate the ComboBox when the Form Load method is called. The six categories must be read from a simple text file.
         private void FillComboBox()
         {
             var lines = File.ReadLines("Categories.txt");
@@ -66,7 +58,7 @@ namespace Definitions_Wiki_Expanded
         private void DisplayAllDefinitions()
         {
             ListViewDisplay.Items.Clear();
-            Wiki.Sort(); // icomparable means you can just use this
+            Wiki.Sort();
 
             foreach (var item in Wiki) // display all items from wiki
             {
@@ -78,22 +70,28 @@ namespace Definitions_Wiki_Expanded
 
         private void DisplaySpecific(int index)
         {
-            // put this in a try catch? so if anything but mainly radio doesnt work, it 
-            // idk what im talking about, just make this function better 
             TextBoxName.Text = Wiki[index].GetName();
             ComboBoxCategory.Text = Wiki[index].GetCategory();
-            int radioIndx = GetIndexFromRadio(index);
-            if (radioIndx == 0)
+
+            int radioIndex = GetIndexFromRadio(index);
+
+            if (radioIndex == 0)
+            {
                 RadioButtonLinear.Checked = true;
-            else if (radioIndx == 1)
+            } 
+            else if (radioIndex == 1)
+            {
                 RadioButtonNonLinear.Checked = true;
+            }   
             else
-                StatusStripMessage.Text = "error with radio box";
-            
+            {
+                StatusStripMessage.Text = "Invalid Radio Selection";
+            }
+
             TextBoxDefinition.Text = Wiki[index].GetDefinition();
         }
 
-        // 6.11 Create a ListView event so a user can select a Data Structure Name from the list of Names and the associated information will be displayed in the related text boxes combo box and radio button.
+        // 6.11 Create a ListView event so a user can select a Data Structure Name from the list of Names and the associated information will be displayed in the related text boxes, combo box, and radio button.
         private void ListViewDisplay_MouseClick(object sender, MouseEventArgs e)
         {
             try
@@ -117,8 +115,8 @@ namespace Definitions_Wiki_Expanded
 
         private void ClearDisplay()
         {
-            DisplayAllDefinitions(); // displays definitions
-            ClearFields(); // clears entry boxes
+            DisplayAllDefinitions();
+            ClearFields();
             TextBoxName.Focus();
             StatusStripMessage.Text = "";
         }
@@ -147,9 +145,11 @@ namespace Definitions_Wiki_Expanded
         // 6.3 Create a button method to ADD a new item to the list.
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
+            // if all fields are filled
             if (!string.IsNullOrEmpty(TextBoxName.Text) && ComboBoxCategory.SelectedIndex != -1 && (RadioButtonLinear.Checked || RadioButtonNonLinear.Checked) && !string.IsNullOrEmpty(TextBoxDefinition.Text))
-            { // if all fields are filled
-                if (ValidName(TextBoxName.Text)) // if name returns valid
+            {
+
+                if (ValidName(TextBoxName.Text)) // if name returns valid (true)
                 {
                     Information newInformation = new Information();
 
@@ -164,9 +164,9 @@ namespace Definitions_Wiki_Expanded
                     ClearFields();
                     TextBoxName.Focus();
                 }
-                else
+                else // ValidName() returned false
                 {
-                    StatusStripMessage.Text = "Not Added. Name Likely a Duplicate";
+                    StatusStripMessage.Text = "Not Added. Name Is A Duplicate";
                 }
             }
             else
@@ -178,9 +178,17 @@ namespace Definitions_Wiki_Expanded
         // 6.7 Create a button method that will delete the currently selected record in the ListView.
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
+            Stream file = File.Create("Trace_6.7.txt");
+            TextWriterTraceListener myTextListener = new TextWriterTraceListener(file);
+            Trace.Listeners.Add(myTextListener);
             try
             {
+                Trace.WriteLine("Delete Entry:");
+
                 int currentIndex = ListViewDisplay.FocusedItem.Index;
+
+                Trace.WriteLine("Current Index: " + currentIndex);
+
                 if (currentIndex > -1)
                 {
                     string message = "Are You Sure You Want To Delete This Entry?\nThis Action Is Permanent.";
@@ -189,23 +197,35 @@ namespace Definitions_Wiki_Expanded
                     DialogResult result;
                     result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
 
+                    Trace.WriteLine("Choice: " + result);
                     if (result == DialogResult.OK)
                     {
                         Wiki.RemoveAt(currentIndex);
                         ClearDisplay();
                         StatusStripMessage.Text = "Deleted";
+
+                        Trace.WriteLine("Deleted");
+                        Trace.Flush();
+                        Trace.Close();
                     }
                     else
                     {
                         StatusStripMessage.Text = "Not Deleted";
+
+                        Trace.WriteLine("Not Deleted");
+                        Trace.Flush();
+                        Trace.Close();
                     }
                 }
             }
             catch
             {
                 StatusStripMessage.Text = "Invalid Selection";
-            }
 
+                Trace.WriteLine("Invalid Selection");
+                Trace.Flush();
+                Trace.Close();
+            }
         }
 
         // bonus delete method to quickly delete everything
@@ -229,14 +249,18 @@ namespace Definitions_Wiki_Expanded
             }
         }
 
-        // 6.8 Create a button method that will save the edited record of the currently selected item in the ListView.
-        // All the changes in the input controls will be written back to the list.
-        // Display an updated version of the sorted list at the end of this process.
+        // 6.8 Create a button method that will save the edited record of the currently selected item in the ListView. All the changes in the input controls will be written back to the list. Display an updated version of the sorted list at the end of this process.
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
+            Stream file = File.Create("Trace_6.8.txt");
+            TextWriterTraceListener myTextListener = new TextWriterTraceListener(file);
+            Trace.Listeners.Add(myTextListener);
+
+            Trace.WriteLine("Editing Entry:");
             try
             {
                 int currentIndex = ListViewDisplay.FocusedItem.Index;
+                Trace.WriteLine("Index: " + currentIndex);
                 if (currentIndex > -1)
                 {
                     Wiki[currentIndex].SetName(TextBoxName.Text);
@@ -246,28 +270,33 @@ namespace Definitions_Wiki_Expanded
                     Wiki.Sort();
                     DisplayAllDefinitions();
                     StatusStripMessage.Text = "Edit Successful";
-                }
-                else
-                {
-                    StatusStripMessage.Text = "Edit Unsuccessful";
+
+                    Trace.WriteLine("New Name: " + TextBoxName.Text);
+                    Trace.WriteLine("New Category: " + ComboBoxCategory.Text);
+                    Trace.WriteLine("New Structure: " + GetStringFromRadio());
+                    Trace.WriteLine("New Definition: " + TextBoxDefinition.Text);
+                    Trace.Flush();
+                    Trace.Close();
                 }
             }
             catch
             {
-                StatusStripMessage.Text = "Please Select A Valid Entry";
+                StatusStripMessage.Text = "Edit Unsuccessful. Index Likely Invalid";
+
+                Trace.WriteLine("Edit Unsuccessful. Index Likely Invalid");
+                Trace.Flush();
+                Trace.Close();
             }
         }
 
-        // 6.10 Create a button method that will use the builtin binary search to find a Data Structure name.
-        // If the record is found the associated details will populate the appropriate input controls and highlight the name in the ListView.
-        // At the end of the search process the search input TextBox must be cleared.
+        // 6.10 Create a button method that will use the builtin binary search to find a Data Structure name. If the record is found the associated details will populate the appropriate input controls and highlight the name in the ListView. At the end of the search process the search input TextBox must be cleared.
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             Information searchName = new Information();
-            searchName.SetName(TextBoxSearch.Text);
+            searchName.SetName(TextBoxSearch.Text); // set name to have consistent capitalisation
             int index = Wiki.BinarySearch(searchName);
 
-            if (index > -1)
+            if (index > -1) // if valid index
             {
                 StatusStripMessage.Text = "Found";
                 DisplaySpecific(index);
@@ -287,8 +316,7 @@ namespace Definitions_Wiki_Expanded
 
         #region Save-Open
 
-        // 6.14 Create two buttons for the manual open and save option; this must use a dialog box to select a file or rename a saved file.
-        // All Wiki data is stored/retrieved using a binary reader/writer file format.
+        // 6.14 Create two buttons for the manual open and save option; this must use a dialog box to select a file or rename a saved file. All Wiki data is stored/retrieved using a binary reader/writer file format.
 
         private void MenuItemSave_Click(object sender, EventArgs e)
         {
@@ -344,8 +372,6 @@ namespace Definitions_Wiki_Expanded
 
         private void MenuItemOpen_Click(object sender, EventArgs e)
         {
-            Wiki.Clear(); // clear for new file
-
             // open file dialog settings
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Application.StartupPath;
@@ -354,7 +380,7 @@ namespace Definitions_Wiki_Expanded
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // open file and display
+                Wiki.Clear(); // clear for new file
                 OpenRecord(openFileDialog.FileName);
                 StatusStripMessage.Text = "File Opened";
 
@@ -375,7 +401,7 @@ namespace Definitions_Wiki_Expanded
 
                         while (stream.Position < stream.Length)
                         {
-                            Information newInformation = new Information(); // need to create new instance for every itteration
+                            Information newInformation = new Information(); // need to create new instance for every iteration
 
                             string name = reader.ReadString();
                             string category = reader.ReadString();
@@ -405,8 +431,7 @@ namespace Definitions_Wiki_Expanded
 
         #region Misc-Methods
 
-        // 6.6 Create two methods to highlight and return the values from the Radio button GroupBox.
-        // The first method must return a string value from the selected radio button (Linear or Non-Linear).
+        // 6.6 Create two methods to highlight and return the values from the Radio button GroupBox. The first method must return a string value from the selected radio button (Linear or Non-Linear).
         private string GetStringFromRadio() // used for saving
         {
             string radioText = "";
@@ -414,7 +439,7 @@ namespace Definitions_Wiki_Expanded
                 radioText = RadioButtonLinear.Text; // save radioText as the value of that button
             else if (RadioButtonNonLinear.Checked)
                 radioText = RadioButtonNonLinear.Text;
-            return radioText; // return blank if nothing is selected
+            return radioText; // will return blank if nothing is selected
         }
 
         // The second method must send an integer index which will highlight an appropriate radio button.
@@ -433,26 +458,36 @@ namespace Definitions_Wiki_Expanded
         // 6.5 Create a custom ValidName method which will take a parameter string value from the Textbox Name and returns a Boolean after checking for duplicates.
         private bool ValidName(string name)
         {
-            if (Wiki.Exists(dup => dup.GetName() == name))
-                return false;
+            Stream file = File.Create("Trace_6.5.txt");
+            TextWriterTraceListener myTextListener = new TextWriterTraceListener(file);
+            Trace.Listeners.Add(myTextListener);
+
+            Trace.WriteLine("Validating Name:");
+            Trace.WriteLine("Input: " + name);
+
+            TextInfo myTI = new CultureInfo("en-AU", false).TextInfo;
+            string capitalName = myTI.ToTitleCase(name); // capitalises before checking
+
+            Trace.WriteLine("Input Capitalised: " + capitalName);
+
+            if (Wiki.Exists(dup => dup.GetName() == capitalName)) // does it exist already?
+            {
+                Trace.WriteLine("Duplicate Found. Return False");
+                Trace.Flush();
+                Trace.Close();
+                return false; // yes it exists already. return false for invalid
+            }
             else
-                return true;
+            {
+                Trace.WriteLine("Duplicate Not Found. Return True");
+                Trace.Flush();
+                Trace.Close();
+                return true; // no it doesnt exist already. return true for valid
+            }    
         }
 
         #endregion
-
     }
 }
 
-// testing:
-// port trace output to text file
-// examples on blackboard
-// need to clarify what its doing
-// teacher will go through it next week
-
-// examples:
-// Trace.WriteLine("Entering Main");
-// Trace.TraceInformation("mid {0}", mid); // Output Trace information
-
-
-// not needed but on arrow up or down in listview, display current index
+// remove tracing code for release version
