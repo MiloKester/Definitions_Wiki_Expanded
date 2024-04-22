@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 
 // 30063179 Milo Kester
-// 2024-04-XX
+// 2024-04-22
 // AT2 Definitions Wiki Expanded Features
 
 namespace Definitions_Wiki_Expanded
@@ -68,7 +68,7 @@ namespace Definitions_Wiki_Expanded
             }
         }
 
-        private void DisplaySpecific(int index)
+        private void DisplaySpecific(int index) // click an item from listview to display in fields // also runs on file open for first entry
         {
             TextBoxName.Text = Wiki[index].GetName();
             ComboBoxCategory.Text = Wiki[index].GetCategory();
@@ -113,7 +113,7 @@ namespace Definitions_Wiki_Expanded
 
         #region Clearing
 
-        private void ClearDisplay()
+        private void ClearAndDisplay()
         {
             DisplayAllDefinitions();
             ClearFields();
@@ -135,14 +135,14 @@ namespace Definitions_Wiki_Expanded
         // 6.13 Create a double click event on the Name TextBox to clear the TextBoxes, ComboBox and Radio button.
         private void TextBoxName_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ClearDisplay();
+            ClearAndDisplay();
         }
 
         #endregion
 
         #region Buttons
 
-        // 6.3 Create a button method to ADD a new item to the list.
+        // 6.3 Create a button method to ADD a new item to the list. Use a TextBox for the Name input, ComboBox for the Category, Radio group for the Structure and Multiline TextBox for the Definition.
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             // if all fields are filled
@@ -201,7 +201,7 @@ namespace Definitions_Wiki_Expanded
                     if (result == DialogResult.OK)
                     {
                         Wiki.RemoveAt(currentIndex);
-                        ClearDisplay();
+                        ClearAndDisplay();
                         StatusStripMessage.Text = "Deleted";
 
                         Trace.WriteLine("Deleted");
@@ -240,7 +240,7 @@ namespace Definitions_Wiki_Expanded
             if (result == DialogResult.OK)
             {
                 Wiki.Clear();
-                ClearDisplay();
+                ClearAndDisplay();
                 StatusStripMessage.Text = "Deleted";
             }
             else
@@ -324,7 +324,7 @@ namespace Definitions_Wiki_Expanded
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "dat files (*.dat) | *.dat";
             saveFileDialog.Title = "Save Dictionary";
-            saveFileDialog.InitialDirectory = System.Windows.Forms.Application.StartupPath;
+            saveFileDialog.InitialDirectory = Application.StartupPath;
             saveFileDialog.DefaultExt = "dat";
             saveFileDialog.ShowDialog();
             string fileName = saveFileDialog.FileName;
@@ -472,14 +472,14 @@ namespace Definitions_Wiki_Expanded
 
             if (Wiki.Exists(dup => dup.GetName() == capitalName)) // does it exist already?
             {
-                Trace.WriteLine("Duplicate Found. Return False");
+                Trace.WriteLine("Duplicate Found. Returns False");
                 Trace.Flush();
                 Trace.Close();
                 return false; // yes it exists already. return false for invalid
             }
             else
             {
-                Trace.WriteLine("Duplicate Not Found. Return True");
+                Trace.WriteLine("Duplicate Not Found. Returns True");
                 Trace.Flush();
                 Trace.Close();
                 return true; // no it doesnt exist already. return true for valid
@@ -489,5 +489,3 @@ namespace Definitions_Wiki_Expanded
         #endregion
     }
 }
-
-// remove tracing code for release version

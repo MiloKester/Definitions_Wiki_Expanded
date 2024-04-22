@@ -56,6 +56,7 @@ namespace Definitions_Wiki_Expanded
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ButtonDeleteAll = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +77,7 @@ namespace Definitions_Wiki_Expanded
             this.TextBoxName.Name = "TextBoxName";
             this.TextBoxName.Size = new System.Drawing.Size(121, 20);
             this.TextBoxName.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.TextBoxName, "Double Click to Clear All Fields");
             this.TextBoxName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TextBoxName_MouseDoubleClick);
             // 
             // TextBoxDefinition
@@ -196,7 +198,7 @@ namespace Definitions_Wiki_Expanded
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripStatusLabel,
             this.StatusStripMessage});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 335);
+            this.StatusStrip.Location = new System.Drawing.Point(0, 336);
             this.StatusStrip.Name = "StatusStrip";
             this.StatusStrip.Size = new System.Drawing.Size(497, 22);
             this.StatusStrip.TabIndex = 14;
@@ -280,7 +282,7 @@ namespace Definitions_Wiki_Expanded
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(497, 357);
+            this.ClientSize = new System.Drawing.Size(497, 358);
             this.Controls.Add(this.ButtonDeleteAll);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -339,6 +341,7 @@ namespace Definitions_Wiki_Expanded
         private Label label2;
         private Label label3;
         private Button ButtonDeleteAll;
+        private ToolTip toolTip1;
     }
 }
 
